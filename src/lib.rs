@@ -39,8 +39,10 @@ use alloc::vec::Vec;
 use core::fmt;
 use core::ops::Deref;
 use core::time::Duration;
-#[cfg(feature = "std")]
+#[cfg(all(feature = "std", not(feature = "wasm-web")))]
 use std::time::SystemTime;
+#[cfg(all(feature = "std", feature = "wasm-web"))]
+use web_time::SystemTime;
 
 mod server_name;
 pub use server_name::{

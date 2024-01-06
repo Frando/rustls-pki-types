@@ -14,7 +14,11 @@ categories = ["network-programming", "data-structures", "cryptography"]
 default = ["alloc"]
 alloc = []
 std = ["alloc"]
+wasm-web = ["web-time"]
 
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+web-time = { version = "0.2.4", optional = true }
